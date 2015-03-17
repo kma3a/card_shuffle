@@ -44,6 +44,15 @@ function Dealer(myDeck, players) {
 	this.players= players;
 }
 
+Dealer.prototype.dealCards = functon() {
+	var count = 5;
+	while (count > 0) {
+		this.players.forEach(function(player) {
+			player.getCard(this.currentDeck.shift());
+		})
+	}
+}	
+
 
 function Player(name){
 	this.name = name;
