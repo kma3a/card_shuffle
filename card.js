@@ -11,6 +11,20 @@ function Deck(inputDeck) {
 	this.deck = inputDeck;
 }
 
+Deck.prototype.shuffleDeck = function() {
+	var shuffledDeck = [];
+	while (shuffledDeck.length < 52) {
+		if (this.deck.length ===1){
+			shuffledDeck.push(this.deck[0]);
+		} else {
+			var randNumber = Math.floor(Math.random() * (this.deck.length - 1)) + 1;
+			shuffledDeck.push(this.deck[randNumber]);
+			this.deck.splice(randNumber,1);
+		}	
+	}
+	return shuffledDeck;
+}
+
 function createDeck() {
 	var suits = ["harts", "spades", "dimonds","clubs"];
 	var numbers = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten", "jack", "queen","king"];
@@ -25,3 +39,4 @@ function createDeck() {
 
 var myDeck = new Deck(createDeck());
 console.log(myDeck.deck);
+console.log(myDeck.shuffleDeck());
