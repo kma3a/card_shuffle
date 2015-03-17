@@ -39,4 +39,9 @@ function createDeck() {
 
 var myDeck = new Deck(createDeck());
 console.log(myDeck.deck);
-console.log(myDeck.shuffleDeck());
+myDeck = myDeck.shuffleDeck();
+
+function Dealer(myDeck, players) {
+	this.currentDeck: myDeck;
+	this.players: players;
+}
