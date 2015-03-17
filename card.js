@@ -38,13 +38,12 @@ function createDeck() {
 }
 
 var myDeck = new Deck(createDeck());
-console.log(myDeck.deck);
-myDeck = myDeck.shuffleDeck();
 
 function Dealer(myDeck, players) {
 	this.currentDeck= myDeck;
 	this.players= players;
 }
+
 
 function Player(name){
 	this.name = name;
@@ -59,4 +58,5 @@ function createPlayers() {
 	})
 	return playerObject;
 }
-console.log(createPlayers());
+
+var myDealer = new Dealer(myDeck.shuffleDeck(), createPlayers());
