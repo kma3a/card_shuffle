@@ -56,7 +56,18 @@ Dealer.prototype.dealCards = functon() {
 
 function Player(name){
 	this.name = name;
-	this.deck = [];
+	this.hand = [];
+}
+
+Player.prototype.getCard = function(card) {
+	this.hand.push(card)
+}
+
+Player.prototype.viewCards = function() {
+	console.log(this.name + "'s hand is: ");
+	this.hand.forEach(function(card) {
+		card.view()
+	});
 }
 
 function createPlayers() {
