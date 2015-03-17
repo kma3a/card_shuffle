@@ -7,6 +7,10 @@ Card.prototype.view = function() {
 		console.log( this.value + " of " + this.suit);
 	}
 
+function Deck(inputDeck) {
+	this.deck = inputDeck;
+}
+
 function createDeck() {
 	var suits = ["harts", "spades", "dimonds","clubs"];
 	var numbers = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten", "jack", "queen","king"];
@@ -19,4 +23,5 @@ function createDeck() {
 	return deck;
 }
 
-console.log(createDeck().length === 52);
+var myDeck = new Deck(createDeck());
+console.log(myDeck.deck);
