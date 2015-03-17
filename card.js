@@ -45,3 +45,10 @@ function Dealer(myDeck, players) {
 	this.currentDeck: myDeck;
 	this.players: players;
 }
+
+function Player(name){
+	this.name = name;
+	this.deck = [];
+}
+
+
