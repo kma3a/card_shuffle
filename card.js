@@ -26,7 +26,7 @@ Deck.prototype.shuffleDeck = function() {
 }
 
 function createDeck() {
-	var suits = ["harts", "spades", "dimonds","clubs"];
+	var suits = ["hearts", "spades", "dimonds","clubs"];
 	var numbers = ["ace", "two", "three", "four", "five", "six", "seven", "eight", "nine","ten", "jack", "queen","king"];
 	var deck = [];
 	suits.forEach(function(suit) {
@@ -39,7 +39,6 @@ function createDeck() {
 
 var myDeck = new Deck(createDeck());
 var newDeck = myDeck.shuffleDeck();
-console.log(newDeck);
 
 function Dealer(inputDeck, players) {
 	this.currentDeck= inputDeck;
