@@ -38,20 +38,28 @@ function createDeck() {
 }
 
 var myDeck = new Deck(createDeck());
+var newDeck = myDeck.shuffleDeck();
+console.log(newDeck);
 
-function Dealer(myDeck, players) {
-	this.currentDeck= myDeck;
+function Dealer(inputDeck, players) {
+	this.currentDeck= inputDeck;
 	this.players= players;
 }
 
-Dealer.prototype.dealCards = functon() {
-	var count = 5;
-	while (count > 0) {
+Dealer.prototype.dealCards = function() {
+	var currentDeck = this.currentDeck;
+	for (var count = 5; count > 0; count--)  {
 		this.players.forEach(function(player) {
-			player.getCard(this.currentDeck.shift());
+			player.getCard(currentDeck.shift());
 		})
 	}
 }	
+
+Dealer.prototype.viewPlayerCards  = function() {
+	this.players.forEach(function(player) {
+		player.viewHand();
+	})
+}
 
 
 function Player(name){
@@ -63,7 +71,7 @@ Player.prototype.getCard = function(card) {
 	this.hand.push(card)
 }
 
-Player.prototype.viewCards = function() {
+Player.prototype.viewHand = function() {
 	console.log(this.name + "'s hand is: ");
 	this.hand.forEach(function(card) {
 		card.view()
@@ -79,4 +87,8 @@ function createPlayers() {
 	return playerObject;
 }
 
-var myDealer = new Dealer(myDeck.shuffleDeck(), createPlayers());
+var myDealer = new Dealer(newDeck, createPlayers());
+myDealer.dealCards();
+myDealer.viewPlayerCards();
+
+
