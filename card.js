@@ -42,8 +42,8 @@ console.log(myDeck.deck);
 myDeck = myDeck.shuffleDeck();
 
 function Dealer(myDeck, players) {
-	this.currentDeck: myDeck;
-	this.players: players;
+	this.currentDeck= myDeck;
+	this.players= players;
 }
 
 function Player(name){
@@ -51,4 +51,12 @@ function Player(name){
 	this.deck = [];
 }
 
-
+function createPlayers() {
+	var players = ["Joe","Bob","Becca","Daisy"];
+	var playerObject = [];
+	players.forEach(function(name) {
+		playerObject.push(new Player(name));
+	})
+	return playerObject;
+}
+console.log(createPlayers());
